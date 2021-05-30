@@ -1,10 +1,11 @@
-import { Counter } from "./components/Counter"
-import { CounterConHook } from "./components/CounterConHook"
-import { Login } from "./components/Login"
-import { Users } from "./components/Users"
-import { BasicTypes } from "./typescript/BasicTypes"
-import { Functions } from "./typescript/Functions"
-import { LiteralObjects } from "./typescript/LiteralObjects"
+// import { Counter } from "./components/Counter"
+// import { CounterConHook } from "./components/CounterConHook"
+// import { Login } from "./components/Login"
+// import { Users } from "./components/Users"
+// import { BasicTypes } from "./typescript/BasicTypes"
+// import { Functions } from "./typescript/Functions"
+// import { LiteralObjects } from "./typescript/LiteralObjects"
+import { Forms } from "./components/Forms"
 
 const App = () => {
 
@@ -18,7 +19,8 @@ const App = () => {
      {/* <Counter /> */}
      {/* <CounterConHook /> */}
      {/* <Login /> */}
-     <Users />
+     {/* <Users /> */}
+     <Forms />
     </div>
   )
 }
