@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React from 'react'
+import { StyleSheet, Text, TouchableNativeFeedback, TouchableOpacity, View, Platform } from 'react-native'
 
 interface Props {
   title: string;
@@ -10,20 +10,47 @@ interface Props {
 
 export const Fab = ({title, position = 'br', onPress}: Props) => {
 
-  return (
+  const ios = () => {
+    return (
       <TouchableOpacity
-        // list of styles
+        onPress={onPress}
+        activeOpacity={0.8}
         style={[
           styles.fabLocation,
           ( position === 'bl') ? styles.left : styles.right
         ]}
-        onPress={onPress} 
       >
         <View style={styles.fab}>
           <Text style={styles.fabText}>{title}</Text>
         </View>
       </TouchableOpacity>
-  )
+    )
+  }
+
+  const android = () => {
+    return (
+      <View 
+        // list of styles
+        style={[
+          styles.fabLocation,
+          ( position === 'bl') ? styles.left : styles.right
+        ]}
+        >
+          <TouchableNativeFeedback
+            onPress={onPress}
+            // android style
+            background={TouchableNativeFeedback.Ripple('#28425B', false, 20)}
+          >
+            <View style={styles.fab}>
+              <Text style={styles.fabText}>{title}</Text>
+            </View>
+          </TouchableNativeFeedback>
+      </View>
+    )
+  }
+
+  return (Platform.OS === 'ios') ? ios() : android()
+
 }
 
 const styles = StyleSheet.create({
@@ -43,6 +70,14 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 100,
     justifyContent: 'center',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 6,
   },
   fabText: {
     color: 'white',
