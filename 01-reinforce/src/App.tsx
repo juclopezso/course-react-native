@@ -1,6 +1,7 @@
 import { Counter } from "./components/Counter"
 import { CounterConHook } from "./components/CounterConHook"
 import { Login } from "./components/Login"
+import { Users } from "./components/Users"
 import { BasicTypes } from "./typescript/BasicTypes"
 import { Functions } from "./typescript/Functions"
 import { LiteralObjects } from "./typescript/LiteralObjects"
@@ -16,7 +17,8 @@ const App = () => {
      <Functions /> */}
      {/* <Counter /> */}
      {/* <CounterConHook /> */}
-     <Login />
+     {/* <Login /> */}
+     <Users />
     </div>
   )
 }
