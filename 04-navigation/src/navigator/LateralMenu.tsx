@@ -1,9 +1,10 @@
 import React from 'react'
 import { createDrawerNavigator, DrawerContent, DrawerContentComponentProps, DrawerContentOptions, DrawerContentScrollView } from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { SettingsScreen } from '../screens/SettingsScreen';
-import { StackNavigator } from './StackNavigator';
 import { Image, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
 import { styles } from '../theme/appThene';
+import { Tabs } from './Tabs';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,7 +18,7 @@ export const LateralMenu = () => {
       // passing destructured props
       drawerContent={ (props) => <MenuContent {...props} />}
     >
-      <Drawer.Screen name="StackNavigator" component={StackNavigator} />
+      <Drawer.Screen name="Tabs" component={Tabs} />
       <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
     </Drawer.Navigator>
   );
@@ -39,15 +40,23 @@ const MenuContent = ({navigation}: DrawerContentComponentProps<DrawerContentOpti
       {/* menu options */}
       <View style={styles.menuContainer}>
           <TouchableOpacity 
-            style={styles.menuButton}
-            onPress={() => navigation.navigate("StackNavigator")}
+            style={{
+              ...styles.menuButton,
+              flexDirection: 'row'
+            }}
+            onPress={() => navigation.navigate("Tabs")}
             >
-            <Text style={styles.menuText}>Navigation</Text>
+            <Icon name="compass-outline" size={26} color="black" />
+            <Text style={styles.menuText}>Tabs</Text>
           </TouchableOpacity>
           <TouchableOpacity 
-            style={styles.menuButton}
+            style={{
+              ...styles.menuButton,
+              flexDirection: 'row'
+            }}
             onPress={() => navigation.navigate("SettingsScreen")}
             >
+            <Icon name="cog-outline" size={26} color="black" />
             <Text style={styles.menuText}>Settings</Text>
           </TouchableOpacity>
       </View>
