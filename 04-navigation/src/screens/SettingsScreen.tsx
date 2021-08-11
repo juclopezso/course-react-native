@@ -1,9 +1,10 @@
 import { DrawerContentScrollView } from '@react-navigation/drawer';
 import React, { useContext } from 'react'
 import { Text, View } from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { AuthContext } from '../context/AuthContext';
-import { styles } from '../theme/appThene';
+import { colors, styles } from '../theme/appThene';
 
 export const SettingsScreen = () => {
 
@@ -19,6 +20,13 @@ export const SettingsScreen = () => {
       }}>
       <Text style={styles.title}>Settings Screen</Text> 
       <Text>{ JSON.stringify(authState, null, 4) }</Text>
+      
+      {
+        authState.favoriteIcon && (
+          <Icon name={authState.favoriteIcon} size={60} color={colors.primary} />
+        )
+      }
+
     </View>
   )
 }
