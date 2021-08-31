@@ -41,6 +41,7 @@
 		58C0A6824F8F68E95A967B63 /* Pods-MoviesApp-MoviesAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesApp-MoviesAppTests.release.xcconfig"; path = "Target Support Files/Pods-MoviesApp-MoviesAppTests/Pods-MoviesApp-MoviesAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MoviesApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C7292607DFE296E68C3C61F /* Pods-MoviesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesApp.release.xcconfig"; path = "Target Support Files/Pods-MoviesApp/Pods-MoviesApp.release.xcconfig"; sourceTree = "<group>"; };
+		A0274A6A26D49A4A00307889 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F0DB87F8EA320C0D6C7E030D /* Pods-MoviesApp-MoviesAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesApp-MoviesAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MoviesApp-MoviesAppTests/Pods-MoviesApp-MoviesAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F64A5FB00AD09CD280C0360C /* Pods-MoviesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesApp.debug.xcconfig"; path = "Target Support Files/Pods-MoviesApp/Pods-MoviesApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				A0274A6926D499FD00307889 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* MoviesApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* MoviesAppTests */,
@@ -137,6 +139,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A0274A6926D499FD00307889 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A0274A6A26D49A4A00307889 /* Ionicons.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E6BE2910F9A4782DB65BD7D4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +155,6 @@
 				F0DB87F8EA320C0D6C7E030D /* Pods-MoviesApp-MoviesAppTests.debug.xcconfig */,
 				58C0A6824F8F68E95A967B63 /* Pods-MoviesApp-MoviesAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

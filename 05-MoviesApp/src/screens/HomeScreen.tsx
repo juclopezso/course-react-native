@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect } from 'react'
-import { ScrollView, ActivityIndicator, Button, Dimensions, Text, View, FlatList } from 'react-native'
+import { ScrollView, ActivityIndicator, Dimensions, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import Carousel from 'react-native-snap-carousel';
 import { HorizontalSlider } from '../components/HorizontalSlider';
@@ -15,7 +15,7 @@ const { width: windowWidth } = Dimensions.get('window');
 export const HomeScreen = () => {
 
   // const navigation = useNavigation();
-  const { nowMovies, popularMovies, isLoading } =  useMovies();
+  const { nowPlaying, popular, topRated, upcoming, isLoading } =  useMovies();
   const { top } = useSafeAreaInsets();
 
   if ( isLoading ) {
@@ -36,7 +36,7 @@ export const HomeScreen = () => {
         {/* to fix the shadow border, 20 points more than the card */}
         <View style={{ height: 440}}>
           <Carousel 
-            data={ nowMovies }
+            data={ nowPlaying }
             renderItem={ ({ item }: any) => ( <MoviePoster movie={ item } /> )}
             sliderWidth={ windowWidth }
             itemWidth={ 300 }
@@ -46,8 +46,10 @@ export const HomeScreen = () => {
         </View>
 
         {/* popular movies */}
-        <HorizontalSlider title="Currently" movies={ nowMovies } />
-        <HorizontalSlider title="Popular" movies={ popularMovies } />
+        {/* the ! is to tell ts to skip avoid the undefined return */}
+        <HorizontalSlider title="Popular" movies={ popular! } />
+        <HorizontalSlider title="Top Rated" movies={ topRated } /> 
+        <HorizontalSlider title="Upcoming" movies={ upcoming } /> 
 
       </View>
 
