@@ -1,17 +1,18 @@
 import { StackScreenProps } from '@react-navigation/stack'
 import React from 'react'
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import { RootStackParams } from '../navigation/Navigation'
 import Icon from "react-native-vector-icons/Ionicons";
 import { useMovieDetails } from '../hooks/useMovieDetails';
+import { MovieDetails } from '../components/MovieDetails';
 
 const screenHeight = Dimensions.get('screen').height;
 
 
 interface Props extends StackScreenProps<RootStackParams, 'DetailScreen'>{};
 
-export const DetailScreen = ( { route }: Props ) => {
+export const DetailScreen = ( { route, navigation }: Props ) => {
 
   const movie = route.params;
   const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}` 
@@ -32,13 +33,22 @@ export const DetailScreen = ( { route }: Props ) => {
         <Text style={ styles.subtitle }>{ movie.original_title }</Text>
         <Text style={ styles.title }>{ movie.title }</Text>
       </View>
-      <View style={ styles.bodyContainer }>
-        <Icon
-          name="star-outline"
-          color="grey"
-          size={20}
+      {
+        isLoading
+            ? <ActivityIndicator size={35} color="grey" style={{ marginTop: 20 }} />
+            : <MovieDetails movieFull={ movieFull! } cast={ cast } />
+      }
+      <TouchableOpacity 
+        style={ styles.backButton }
+        onPress={ () => navigation.pop() }
+        >
+        <Icon 
+          color="white"
+          name="arrow-back-outline"
+          size={50}
+          style={ styles.backButtonIcon }
         />
-      </View>
+      </TouchableOpacity>
     </ScrollView>
   )
 }
@@ -80,4 +90,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     opacity: 0.8
   },
+  backButton: {
+    position: 'absolute',
+    zIndex: 999,
+    elevation: 999,
+    top: 20,
+    left: 5
+  },
+  backButtonIcon: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 10,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 7,
+    elevation: 10,
+  }
 })
